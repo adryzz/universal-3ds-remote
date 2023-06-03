@@ -1,0 +1,29 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "type": "lldb",
+            "request": "custom",
+            "name": "Debug executable 'universal-3ds-remote'",
+            "cargo": {
+                "args": [
+                    "3ds",
+                    "run"
+                ],
+                "filter": {
+                    "name": "universal-3ds-remote",
+                    "kind": "bin"
+                }
+            },
+            "targetCreateCommands": ["target create ${workspaceFolder}/target/armv6k-nintendo-3ds/debug/universal-3ds-remote.elf"],
+            "processCreateCommands": ["gdb-remote 10.0.0.5:4003"]
+        },
+        {
+            "type": "lldb",
+            "request": "custom",
+            "name": "Connect debugger to 'universal-3ds-remote'",
+            "targetCreateCommands": ["target create ${workspaceFolder}/target/armv6k-nintendo-3ds/debug/universal-3ds-remote.elf"],
+            "processCreateCommands": ["gdb-remote 10.0.0.5:4003"]
+        },
+    ]
+}
